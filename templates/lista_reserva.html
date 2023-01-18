@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %} {% load static %} {%if data %}
+
+<table class="table table-hover border">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Fono</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Cantidad</th>
+      <th>Observaciones</th>
+      <th></th>
+    </tr>
+  </thead>
+  {% for d in data %}
+  <tr>
+    <td>{{d.nombre}}</td>
+    <td>{{d.fono}}</td>
+    <td>{{d.fecha}}</td>
+    <td>{{d.hora}}</td>
+    <td>{{d.cantidad}}</td>
+    <td>{{d.observacion}}</td>
+    <td>
+      <a href="/eliminar/{{d.id}}" class="btn btn-danger btn-sm"
+        ><i class="bi bi-trash"></i>
+      </a>
+      <a href="/reserva/{{d.id}}" class="btn btn-success btn-sm"
+        ><i class="bi bi-pencil"></i
+      ></a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{%endif%} {% endblock %}
